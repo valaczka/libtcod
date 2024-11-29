@@ -30,6 +30,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 #include "fov.hpp"
+#include "libtcod_int.h"
 
 TCODMap::TCODMap(int width, int height) { data = TCOD_map_new(width, height); }
 
@@ -52,6 +53,8 @@ void TCODMap::setInFov(int x, int y, bool fov) { TCOD_map_set_in_fov(data, x, y,
 bool TCODMap::isTransparent(int x, int y) const { return TCOD_map_is_transparent(data, x, y) != 0; }
 
 bool TCODMap::isWalkable(int x, int y) const { return TCOD_map_is_walkable(data, x, y) != 0; }
+
+bool TCODMap::isInBounds(int x, int y) const { return TCOD_map_in_bounds(data, x, y); }
 
 int TCODMap::getWidth() const { return TCOD_map_get_width(data); }
 

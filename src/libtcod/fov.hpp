@@ -238,6 +238,7 @@ class TCODLIB_API TCODMap {
 		*/
 		bool isTransparent(int x, int y) const;
 		bool isWalkable(int x, int y) const;
+		bool isInBounds(int x, int y) const;
 
    		/**
    		@PageName fov_get
